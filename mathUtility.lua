@@ -1,5 +1,13 @@
+--线性过渡
 local lerp = function(start, target, by)
     by = math.min(1, by)
+    return start + (target - start) * by
+end
+
+--Smooth过渡
+local smoothLerp = function(start, target, by)
+    by = math.min(1, by)
+    by = by * by * by * (by * (6 * by - 15) + 10)
     return start + (target - start) * by
 end
 
